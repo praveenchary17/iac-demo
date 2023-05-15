@@ -20,6 +20,9 @@ pipeline{
             }
         }
         stage('Terraform Apply'){
+	     when {
+                branch 'master'
+            }
             steps{
                 sh label: '', script: 'terraform apply --auto-approve'
             }
